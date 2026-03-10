@@ -27,8 +27,7 @@ const Index = () => {
         {/* Hero Section */}
         <div className="mb-10 sm:mb-14 text-center">
           <h1
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-foreground mb-6 sm:mb-8 leading-tight"
-            style={{ fontFamily: "'Playfair Display', serif" }}
+             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-foreground mb-6 sm:mb-8 leading-tight tracking-tight"
           >
             Save Up To 90% on Apple with Student Discounts!
           </h1>

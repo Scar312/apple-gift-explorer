@@ -1,9 +1,11 @@
 import { MapPin } from "lucide-react";
+import "@fontsource/playfair-display/700.css";
+import "@fontsource/playfair-display/900.css";
 import appleLogo from "@/assets/apple-logo.png";
 
 const steps = [
   "Answer a Few Simple Questions",
-  "Drop In Your Apple Email",
+  "Drop In Your iCloud or Apple Email",
   "Complete 3-5 Recommended Tasks",
   "Sit Back — We'll Get Back to You Within 24 Hours!",
 ];
@@ -14,20 +16,24 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="bg-primary px-6 sm:px-8 lg:px-12 py-6 sm:py-8 flex items-center justify-center">
+      <header className="bg-primary px-6 sm:px-8 lg:px-12 pt-8 sm:pt-10 pb-16 sm:pb-20 flex items-center justify-center relative">
         <img
           src={appleLogo}
           alt="Apple"
-          className="h-16 sm:h-20 md:h-24 lg:h-28 w-auto"
+          className="h-24 sm:h-32 md:h-40 lg:h-48 w-auto absolute -bottom-12 sm:-bottom-16 md:-bottom-20 lg:-bottom-24 z-10 drop-shadow-2xl"
+          style={{ filter: "invert(1)" }}
         />
       </header>
 
       {/* Main Content */}
-      <main className="px-5 sm:px-8 lg:px-12 pt-12 sm:pt-16 md:pt-20 pb-12 max-w-lg sm:max-w-xl md:max-w-2xl lg:max-w-3xl mx-auto">
+      <main className="px-5 sm:px-8 lg:px-12 pt-20 sm:pt-24 md:pt-28 lg:pt-32 pb-12 max-w-lg sm:max-w-xl md:max-w-2xl lg:max-w-3xl mx-auto">
         {/* Hero Section */}
         <div className="mb-10 sm:mb-14 text-center">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-foreground mb-6 sm:mb-8 leading-tight">
-            Save Up To 90% on Apple!
+          <h1
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-foreground mb-6 sm:mb-8 leading-tight"
+            style={{ fontFamily: "'Playfair Display', serif" }}
+          >
+            Save Up To 90% on Apple with Student Discounts!
           </h1>
 
           <div className="flex flex-wrap justify-center gap-3 sm:gap-4">

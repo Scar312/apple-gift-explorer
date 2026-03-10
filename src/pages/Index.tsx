@@ -16,11 +16,12 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="bg-primary px-6 sm:px-8 lg:px-12 py-6 sm:py-8 flex items-center justify-center">
+      <header className="bg-primary px-6 sm:px-8 lg:px-12 pt-8 sm:pt-10 pb-16 sm:pb-20 flex items-center justify-center relative">
         <img
           src={appleLogo}
           alt="Apple"
-          className="h-16 sm:h-20 md:h-24 lg:h-28 w-auto"
+          className="h-24 sm:h-32 md:h-40 lg:h-48 w-auto absolute -bottom-12 sm:-bottom-16 md:-bottom-20 lg:-bottom-24 z-10 drop-shadow-2xl"
+          style={{ filter: "invert(1)" }}
         />
       </header>
 

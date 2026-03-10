@@ -18,8 +18,7 @@ const Index = () => {
         <img
           src={appleLogo}
           alt="Apple"
-          className="h-24 sm:h-32 md:h-40 lg:h-48 w-auto absolute -bottom-12 sm:-bottom-16 md:-bottom-20 lg:-bottom-24 z-10 drop-shadow-2xl"
-          style={{ filter: "invert(1)" }}
+           className="h-24 sm:h-32 md:h-40 lg:h-48 w-auto absolute -bottom-12 sm:-bottom-16 md:-bottom-20 lg:-bottom-24 z-10 drop-shadow-2xl"
         />
       </header>
 

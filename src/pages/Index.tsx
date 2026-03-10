@@ -26,11 +26,14 @@ const Index = () => {
       </header>
 
       {/* Main Content */}
-      <main className="px-5 sm:px-8 lg:px-12 pt-12 sm:pt-16 md:pt-20 pb-12 max-w-lg sm:max-w-xl md:max-w-2xl lg:max-w-3xl mx-auto">
+      <main className="px-5 sm:px-8 lg:px-12 pt-20 sm:pt-24 md:pt-28 lg:pt-32 pb-12 max-w-lg sm:max-w-xl md:max-w-2xl lg:max-w-3xl mx-auto">
         {/* Hero Section */}
         <div className="mb-10 sm:mb-14 text-center">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-foreground mb-6 sm:mb-8 leading-tight">
-            Save Up To 90% on Apple!
+          <h1
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-foreground mb-6 sm:mb-8 leading-tight"
+            style={{ fontFamily: "'Playfair Display', serif" }}
+          >
+            Save Up To 90% on Apple with Student Discounts!
           </h1>
 
           <div className="flex flex-wrap justify-center gap-3 sm:gap-4">

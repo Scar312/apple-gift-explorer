@@ -1,4 +1,6 @@
 import { MapPin } from "lucide-react";
+import "@fontsource/playfair-display/700.css";
+import "@fontsource/playfair-display/900.css";
 import appleLogo from "@/assets/apple-logo.png";
 
 const steps = [

@@ -5,7 +5,7 @@ import appleLogo from "@/assets/apple-logo.png";
 
 const steps = [
   "Answer a Few Simple Questions",
-  "Drop In Your Apple Email",
+  "Drop In Your iCloud or Apple Email",
   "Complete 3-5 Recommended Tasks",
   "Sit Back — We'll Get Back to You Within 24 Hours!",
 ];

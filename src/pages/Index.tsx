@@ -1,6 +1,4 @@
 import { MapPin } from "lucide-react";
-import "@fontsource/playfair-display/700.css";
-import "@fontsource/playfair-display/900.css";
 import appleLogo from "@/assets/apple-logo.png";
 
 const steps = [
@@ -20,8 +18,7 @@ const Index = () => {
         <img
           src={appleLogo}
           alt="Apple"
-          className="h-24 sm:h-32 md:h-40 lg:h-48 w-auto absolute -bottom-12 sm:-bottom-16 md:-bottom-20 lg:-bottom-24 z-10 drop-shadow-2xl"
-          style={{ filter: "invert(1)" }}
+           className="h-24 sm:h-32 md:h-40 lg:h-48 w-auto absolute -bottom-12 sm:-bottom-16 md:-bottom-20 lg:-bottom-24 z-10 drop-shadow-2xl"
         />
       </header>
 
@@ -30,8 +27,7 @@ const Index = () => {
         {/* Hero Section */}
         <div className="mb-10 sm:mb-14 text-center">
           <h1
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-foreground mb-6 sm:mb-8 leading-tight"
-            style={{ fontFamily: "'Playfair Display', serif" }}
+             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-foreground mb-6 sm:mb-8 leading-tight tracking-tight"
           >
             Save Up To 90% on Apple with Student Discounts!
           </h1>

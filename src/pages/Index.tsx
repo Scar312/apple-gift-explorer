@@ -51,7 +51,7 @@ const Index = () => {
           {/* CTA Button */}
           <a
             href="https://giftclick.org/aff_c?offer_id=1701&aff_id=16139"
-            className="block w-full bg-foreground hover:opacity-90 text-background font-bold text-base py-4 rounded-full transition-all duration-200 text-center tracking-wide"
+            className="block w-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-base py-4 rounded-full transition-all duration-200 text-center tracking-wide"
           >
             CLAIM YOUR GIFT CARD →
           </a>

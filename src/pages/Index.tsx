@@ -22,8 +22,8 @@ const Index = () => {
 
         {/* Main Content */}
         <main className="bg-card rounded-b-2xl px-6 py-10 text-center shadow-lg">
-          <h1 className="text-6xl sm:text-7xl font-black text-foreground mb-2 italic">
-            $1000
+          <h1 className="text-6xl sm:text-7xl font-black text-foreground mb-2 italic" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+            $500
           </h1>
           <p className="text-muted-foreground font-semibold tracking-widest text-sm mb-10">
             APPLE GIFT CARD

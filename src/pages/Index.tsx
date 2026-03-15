@@ -12,11 +12,11 @@ const Index = () => {
     <div className="min-h-screen bg-muted flex items-center justify-center p-4">
       <div className="w-full max-w-md">
         {/* Header */}
-        <header className="bg-foreground rounded-t-2xl px-6 py-8 flex items-center justify-center">
+        <header className="bg-primary rounded-t-2xl px-6 py-8 flex items-center justify-center">
           <img
             src={appleLogo}
             alt="Apple"
-            className="h-16 w-auto invert"
+            className="h-16 w-auto brightness-0 invert"
           />
         </header>
 

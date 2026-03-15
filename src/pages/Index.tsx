@@ -37,7 +37,7 @@ const Index = () => {
             <div className="space-y-6">
               {steps.map((step, index) => (
                 <div key={index} className="flex items-center gap-4">
-                  <div className="flex-shrink-0 w-10 h-10 bg-foreground rounded-full flex items-center justify-center text-background font-bold text-sm">
+                  <div className="flex-shrink-0 w-10 h-10 bg-primary rounded-full flex items-center justify-center text-primary-foreground font-bold text-sm">
                     {index + 1}
                   </div>
                   <p className="text-foreground text-base font-semibold text-left">

@@ -1,103 +1,84 @@
-import { CheckCircle, ChevronDown } from "lucide-react";
-import { useState } from "react";
-import warehouseHero from "@/assets/warehouse-hero.jpg";
-import costcoLogo from "@/assets/costco-logo.png";
+import { CheckCircle } from "lucide-react";
+import gamingBackdrop from "@/assets/gaming-backdrop.jpg";
+import carry1stLogo from "@/assets/carry1st-logo.png";
 
-const APPLY_URL = "https://giftclick.org/aff_c?offer_id=1402&aff_id=16139";
-
-const faqs = [
-  { q: "Do I need to provide bank details?", a: "No, you do not need to provide any bank details to claim your Costco reward." },
-  { q: "How long do the deals take?", a: "Most deals can be completed within 5-10 minutes. You'll receive confirmation via email within 24 hours." },
-  { q: "What kind of deals are included?", a: "Deals include free trials, app sign-ups, and quick surveys — all easy to complete." },
-];
+const APPLY_URL = "https://chat.whatsapp.com/EQNHbrdrsDs8fPc9kmH4b0";
 
 const steps = [
-  "Go Through A Quick Questionnaire",
-  "Complete 4-5 Quick Tasks (Guided)",
-  "We'll Go Through Your Application And Email You Within 24hrs",
+  "Click GET STARTED to proceed",
+  "Join in on our official page",
+  "Receive upto 95% off your purchases",
 ];
 
 const Index = () => {
-  const [openFaq, setOpenFaq] = useState<number | null>(null);
-
   return (
-    <div className="min-h-screen bg-background">
-      {/* Hero with gradient fade into background */}
-      <div className="relative w-full h-64 sm:h-80 md:h-96">
-        <img src={warehouseHero} alt="Costco warehouse" className="w-full h-full object-cover" width={1024} height={512} />
-        <div className="absolute inset-0 bg-gradient-to-b from-foreground/30 via-transparent to-transparent" />
-        <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-background via-background/80 to-transparent" />
-        <div className="absolute top-3 left-3 sm:top-4 sm:left-4 flex items-center gap-2">
-          <img src={costcoLogo} alt="Costco logo" className="w-8 h-8 sm:w-10 sm:h-10 rounded" width={40} height={40} />
-          <span className="text-primary-foreground font-bold text-base sm:text-lg drop-shadow-md">Costco</span>
+    <div className="relative min-h-screen bg-background overflow-hidden">
+      {/* Fixed gaming backdrop */}
+      <div
+        className="fixed inset-0 -z-10 bg-cover bg-center"
+        style={{ backgroundImage: `url(${gamingBackdrop})` }}
+        aria-hidden="true"
+      />
+      <div className="fixed inset-0 -z-10 bg-gradient-to-b from-background/85 via-background/95 to-background" aria-hidden="true" />
+
+      {/* Header */}
+      <header className="w-full bg-white/90 backdrop-blur-md border-b border-border shadow-sm sticky top-0 z-50">
+        <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-center">
+          <img src={carry1stLogo} alt="Carry1st" className="h-10 sm:h-12 w-auto" width={120} height={48} />
         </div>
-        <div className="absolute inset-x-0 top-0 bottom-20 flex items-center justify-center">
-          <img src={costcoLogo} alt="Costco" className="w-20 h-20 sm:w-24 sm:h-24 drop-shadow-lg" width={96} height={96} />
-        </div>
+      </header>
+
+      {/* Hero spacer with backdrop visible */}
+      <div className="relative h-48 sm:h-64 md:h-72 flex items-end justify-center pb-4">
+        <div className="absolute inset-0 bg-gradient-to-b from-secondary/40 via-secondary/20 to-background" />
+        <h1 className="relative text-2xl sm:text-3xl md:text-4xl font-black text-white drop-shadow-lg uppercase tracking-wide text-center px-4" style={{ fontFamily: "'Poppins', sans-serif" }}>
+          Get Exclusive Discounts
+        </h1>
       </div>
 
-      {/* Content */}
-      <div className="max-w-lg mx-auto px-4 sm:px-5 -mt-8 sm:-mt-4 pb-8 text-center relative z-10">
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-foreground leading-tight" style={{ fontFamily: "'Poppins', sans-serif" }}>
-          Claim Your Costco Member Reward
-        </h1>
-        <p className="text-muted-foreground mt-2 text-sm sm:text-base">Available in US, UK, AU & CA</p>
+      {/* Content card */}
+      <div className="max-w-lg mx-auto px-4 sm:px-5 -mt-4 pb-12 text-center relative z-10">
+        <div className="bg-card rounded-2xl shadow-xl border border-border p-6 sm:p-8">
+          <p className="text-muted-foreground text-sm sm:text-base">
+            Unlock unbeatable savings on <span className="font-semibold text-primary">Free Fire</span>, <span className="font-semibold text-primary">Call of Duty Mobile</span>, <span className="font-semibold text-primary">PUBG Mobile</span> & more.
+          </p>
 
-        <div className="flex items-center justify-center gap-1.5 sm:gap-2 mt-4 sm:mt-5 flex-wrap">
-          <CheckCircle className="text-green-500 w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0" />
-          <span className="font-bold text-foreground text-sm sm:text-lg">820+ Members Approved This Month</span>
-        </div>
-
-        <div className="w-12 h-1 bg-primary rounded-full mx-auto mt-6" />
-
-        <h2 className="uppercase tracking-widest font-extrabold text-foreground mt-8 text-sm">How To Qualify</h2>
-        <p className="text-muted-foreground text-sm mt-1">Takes ~5–10 minutes</p>
-
-        <div className="flex flex-col gap-3 sm:gap-4 mt-5 sm:mt-6">
-          {steps.map((step, i) => (
-            <div key={i} className="flex items-center gap-3 sm:gap-4 bg-card rounded-xl px-4 sm:px-5 py-4 sm:py-5 text-left shadow-sm">
-              <span className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-primary flex items-center justify-center text-primary-foreground font-bold text-base sm:text-lg">
-                {i + 1}
-              </span>
-              <span className="font-semibold text-foreground text-sm sm:text-base">{step}</span>
-            </div>
-          ))}
-        </div>
-
-        <a
-          href={APPLY_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="block w-full mt-8 py-5 rounded-2xl bg-primary text-primary-foreground font-bold text-xl uppercase tracking-wide text-center shadow-lg hover:opacity-90 transition-opacity"
-        >
-          Apply Now
-        </a>
-
-        <h2 className="uppercase tracking-widest font-extrabold text-foreground mt-12 text-sm">Frequently Asked Questions</h2>
-
-        <div className="mt-6 divide-y divide-border">
-          {faqs.map((faq, i) => (
-            <div key={i}>
-              <button
-                className="w-full text-left py-4 flex items-center justify-between"
-                onClick={() => setOpenFaq(openFaq === i ? null : i)}
-              >
-                <span className="font-medium text-foreground">{faq.q}</span>
-                <ChevronDown className={`w-5 h-5 text-muted-foreground transition-transform ${openFaq === i ? "rotate-180" : ""}`} />
-              </button>
-              {openFaq === i && (
-                <p className="pb-4 text-sm text-muted-foreground text-left">{faq.a}</p>
-              )}
-            </div>
-          ))}
-        </div>
-
-        <div className="mt-12 pb-8 flex flex-col items-center gap-1">
-          <div className="flex items-center gap-2">
-            <img src={costcoLogo} alt="Costco" className="w-8 h-8" width={32} height={32} loading="lazy" />
-            <span className="font-bold text-foreground">Costco</span>
+          <div className="flex items-center justify-center gap-2 mt-4 flex-wrap">
+            <CheckCircle className="text-primary w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0" />
+            <span className="font-bold text-foreground text-sm sm:text-lg">820+ Gamers Saved Big This Month</span>
           </div>
-          <p className="text-muted-foreground text-sm">Powered by Costco</p>
+
+          <div className="w-12 h-1 bg-primary rounded-full mx-auto mt-6" />
+
+          <h2 className="uppercase tracking-widest font-extrabold text-foreground mt-8 text-sm">How To Qualify</h2>
+          <p className="text-muted-foreground text-sm mt-1">Takes less than 2 minutes</p>
+
+          <div className="flex flex-col gap-3 sm:gap-4 mt-5 sm:mt-6">
+            {steps.map((step, i) => (
+              <div key={i} className="flex items-center gap-3 sm:gap-4 bg-muted rounded-xl px-4 sm:px-5 py-4 sm:py-5 text-left border border-border">
+                <span className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-primary flex items-center justify-center text-primary-foreground font-bold text-base sm:text-lg">
+                  {i + 1}
+                </span>
+                <span className="font-semibold text-foreground text-sm sm:text-base">{step}</span>
+              </div>
+            ))}
+          </div>
+
+          <a
+            href={APPLY_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block w-full mt-8 py-5 rounded-2xl bg-primary text-primary-foreground font-bold text-xl uppercase tracking-wide text-center shadow-lg hover:opacity-90 transition-opacity animate-pulse-scale"
+          >
+            Get Started
+          </a>
+
+          <p className="text-xs text-muted-foreground mt-4">Available in US, UK, AU, CA & worldwide</p>
+        </div>
+
+        <div className="mt-10 flex flex-col items-center gap-1">
+          <img src={carry1stLogo} alt="Carry1st" className="h-8 w-auto" width={80} height={32} loading="lazy" />
+          <p className="text-muted-foreground text-sm">Powered by Carry1st</p>
         </div>
       </div>
     </div>

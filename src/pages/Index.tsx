@@ -19,7 +19,7 @@ const Index = () => {
         style={{ backgroundImage: `url(${gamingBackdrop})` }}
         aria-hidden="true"
       />
-      <div className="fixed inset-0 -z-10 bg-gradient-to-b from-background/85 via-background/95 to-background" aria-hidden="true" />
+      <div className="fixed inset-0 -z-10 bg-gradient-to-b from-primary/40 via-background/40 to-background/70" aria-hidden="true" />
 
       {/* Header */}
       <header className="w-full bg-white/90 backdrop-blur-md border-b border-border shadow-sm sticky top-0 z-50">

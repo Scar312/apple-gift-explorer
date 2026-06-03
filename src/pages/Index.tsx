@@ -12,25 +12,25 @@ const steps = [
 
 const Index = () => {
   return (
-    <div className="relative min-h-screen bg-background overflow-hidden">
+    <div className="relative min-h-screen overflow-hidden">
       {/* Fixed gaming backdrop */}
       <div
-        className="fixed inset-0 -z-10 bg-cover bg-center"
+        className="fixed inset-0 z-0 bg-cover bg-center opacity-45"
         style={{ backgroundImage: `url(${gamingBackdrop})` }}
         aria-hidden="true"
       />
-      <div className="fixed inset-0 -z-10 bg-gradient-to-b from-primary/40 via-background/40 to-background/70" aria-hidden="true" />
+      <div className="fixed inset-0 z-0 bg-gradient-to-b from-background/15 via-background/35 to-background/75" aria-hidden="true" />
 
       {/* Header */}
-      <header className="w-full bg-white/90 backdrop-blur-md border-b border-border shadow-sm sticky top-0 z-50">
+      <header className="w-full bg-card/90 backdrop-blur-md border-b border-border shadow-sm sticky top-0 z-50">
         <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-center">
           <img src={carry1stLogo} alt="Carry1st" className="h-10 sm:h-12 w-auto" width={120} height={48} />
         </div>
       </header>
 
       {/* Hero spacer with backdrop visible */}
-      <div className="relative h-48 sm:h-64 md:h-72 flex items-end justify-center pb-4">
-        <div className="absolute inset-0 bg-gradient-to-b from-secondary/40 via-secondary/20 to-background" />
+      <div className="relative z-10 h-48 sm:h-64 md:h-72 flex items-end justify-center pb-4">
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/10 to-background/55" />
         <h1 className="relative text-2xl sm:text-3xl md:text-4xl font-black text-white drop-shadow-lg uppercase tracking-wide text-center px-4" style={{ fontFamily: "'Poppins', sans-serif" }}>
           Get Exclusive Discounts
         </h1>
@@ -38,7 +38,7 @@ const Index = () => {
 
       {/* Content card */}
       <div className="max-w-lg mx-auto px-4 sm:px-5 -mt-4 pb-12 text-center relative z-10">
-        <div className="bg-card rounded-2xl shadow-xl border border-border p-6 sm:p-8">
+        <div className="bg-card/90 backdrop-blur-sm rounded-2xl shadow-xl border border-border p-6 sm:p-8">
           <p className="text-muted-foreground text-sm sm:text-base">
             Unlock unbeatable savings on <span className="font-semibold text-primary">Free Fire</span>, <span className="font-semibold text-primary">Call of Duty Mobile</span>, <span className="font-semibold text-primary">PUBG Mobile</span> & more.
           </p>

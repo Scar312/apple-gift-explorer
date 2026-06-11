@@ -1,86 +1,108 @@
-import { CheckCircle } from "lucide-react";
-import gamingBackdrop from "@/assets/gaming-backdrop.jpg";
-import carry1stLogo from "@/assets/carry1st-logo.png";
+import { useEffect } from "react";
+import { MapPin } from "lucide-react";
+import ticketmasterLogo from "@/assets/ticketmaster-logo.png";
 
-const APPLY_URL = "https://chat.whatsapp.com/EQNHbrdrsDs8fPc9kmH4b0";
-
-const steps = [
-  "Click GET STARTED to proceed",
-  "Join in on our official page",
-  "Receive upto 95% off your purchases",
-];
+const DEFAULT_URL = "https://linkthem.net/aff_c?offer_id=3329&aff_id=16139";
+const GB_URL = "https://giftclick.org/aff_c?offer_id=4101&aff_id=16139";
 
 const Index = () => {
-  return (
-    <div className="relative min-h-screen overflow-hidden">
-      {/* Fixed gaming backdrop */}
-      <div
-        className="fixed inset-0 z-0 bg-cover bg-center opacity-45"
-        style={{ backgroundImage: `url(${gamingBackdrop})` }}
-        aria-hidden="true"
-      />
-      <div className="fixed inset-0 z-0 bg-gradient-to-b from-background/15 via-background/35 to-background/75" aria-hidden="true" />
+  useEffect(() => {
+    let cancelled = false;
+    fetch("https://ipapi.co/json/")
+      .then((r) => r.json())
+      .then((d: { country_code?: string }) => {
+        if (cancelled) return;
+        const btn = document.getElementById("geoBtn") as HTMLAnchorElement | null;
+        if (!btn) return;
+        btn.href = d.country_code === "GB" ? GB_URL : DEFAULT_URL;
+      })
+      .catch(() => {});
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
-      {/* Header */}
-      <header className="w-full bg-card/90 backdrop-blur-md border-b border-border shadow-sm sticky top-0 z-50">
-        <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-center">
-          <img src={carry1stLogo} alt="Carry1st" className="h-10 sm:h-12 w-auto" width={120} height={48} />
+  const steps = [
+    "Answer a Few Simple Questions",
+    "Drop In Your Ticketmaster Email",
+    "Complete 3-5 Recommended Tasks",
+    "Sit Back — We'll Get Back to You Within 24 Hours!",
+  ];
+  const locations = ["USA", "UK", "CA", "AU"];
+
+  return (
+    <div className="min-h-screen bg-gray-50">
+      {/* Hero */}
+      <header className="bg-gradient-to-br from-blue-600 to-blue-700 py-3 md:py-6 flex flex-col relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-blue-800/20" />
+        <div className="relative z-10 px-4 py-2 md:p-6">
+          <img
+            src={ticketmasterLogo}
+            alt="Ticketmaster"
+            className="h-8 md:h-10 object-contain"
+          />
         </div>
+        <div className="absolute top-10 right-10 w-4 h-4 bg-white/20 rounded-full animate-pulse" />
+        <div className="absolute bottom-20 right-20 w-6 h-6 bg-white/15 rounded-full animate-pulse" />
+        <div className="absolute top-1/3 left-10 w-3 h-3 bg-white/25 rounded-full animate-pulse" />
       </header>
 
-      {/* Hero spacer with backdrop visible */}
-      <div className="relative z-10 h-48 sm:h-64 md:h-72 flex items-end justify-center pb-4">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/10 to-background/55" />
-        <h1 className="relative text-2xl sm:text-3xl md:text-4xl font-black text-white drop-shadow-lg uppercase tracking-wide text-center px-4" style={{ fontFamily: "'Poppins', sans-serif" }}>
-          Get Exclusive Discounts
-        </h1>
-      </div>
-
-      {/* Content card */}
-      <div className="max-w-lg mx-auto px-4 sm:px-5 -mt-4 pb-12 text-center relative z-10">
-        <div className="bg-card/90 backdrop-blur-sm rounded-2xl shadow-xl border border-border p-6 sm:p-8">
-          <p className="text-muted-foreground text-sm sm:text-base">
-            Unlock unbeatable savings on <span className="font-semibold text-primary">Free Fire</span>, <span className="font-semibold text-primary">Call of Duty Mobile</span>, <span className="font-semibold text-primary">PUBG Mobile</span> & more.
-          </p>
-
-          <div className="flex items-center justify-center gap-2 mt-4 flex-wrap">
-            <CheckCircle className="text-primary w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0" />
-            <span className="font-bold text-foreground text-sm sm:text-lg">820+ Gamers Saved Big This Month</span>
+      {/* How to qualify */}
+      <section className="bg-slate-50 py-16 px-4">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-16">
+            <h1 className="text-4xl md:text-5xl font-black text-slate-900 mb-4">
+              Save Up To 90% on Ticketmaster!
+            </h1>
+            <div className="flex flex-wrap justify-center gap-4 mt-6">
+              {locations.map((location) => (
+                <div
+                  key={location}
+                  className="flex items-center gap-1 bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-bold"
+                >
+                  <MapPin size={16} />
+                  {location}
+                </div>
+              ))}
+            </div>
           </div>
 
-          <div className="w-12 h-1 bg-primary rounded-full mx-auto mt-6" />
-
-          <h2 className="uppercase tracking-widest font-extrabold text-foreground mt-8 text-sm">How To Qualify</h2>
-          <p className="text-muted-foreground text-sm mt-1">Takes less than 2 minutes</p>
-
-          <div className="flex flex-col gap-3 sm:gap-4 mt-5 sm:mt-6">
-            {steps.map((step, i) => (
-              <div key={i} className="flex items-center gap-3 sm:gap-4 bg-muted rounded-xl px-4 sm:px-5 py-4 sm:py-5 text-left border border-border">
-                <span className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-primary flex items-center justify-center text-primary-foreground font-bold text-base sm:text-lg">
-                  {i + 1}
-                </span>
-                <span className="font-semibold text-foreground text-sm sm:text-base">{step}</span>
-              </div>
-            ))}
+          <div className="text-center mb-12">
+            <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-12">
+              HOW TO QUALIFY
+            </h2>
+            <div className="space-y-8 max-w-2xl mx-auto">
+              {steps.map((step, index) => (
+                <div key={step} className="text-left">
+                  <div className="flex items-start space-x-4 p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow border border-slate-100">
+                    <div className="bg-blue-600 text-white font-bold rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 mt-1">
+                      {index + 1}
+                    </div>
+                    <p className="text-lg md:text-xl font-semibold text-slate-700 leading-relaxed">
+                      {step}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
+        </div>
+      </section>
 
+      {/* CTA */}
+      <section className="bg-slate-50 pb-16 px-4">
+        <div className="max-w-4xl mx-auto text-center">
           <a
-            href={APPLY_URL}
+            id="geoBtn"
+            href={DEFAULT_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="block w-full mt-8 py-5 rounded-2xl bg-primary text-primary-foreground font-bold text-xl uppercase tracking-wide text-center shadow-lg hover:opacity-90 transition-opacity animate-pulse-scale"
+            className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold text-xl px-12 py-6 rounded-2xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 animate-pulse-slow no-underline"
           >
-            Get Started
+            APPLY NOW
           </a>
-
-          <p className="text-xs text-muted-foreground mt-4">Available in US, UK, AU, CA & worldwide</p>
         </div>
-
-        <div className="mt-10 flex flex-col items-center gap-1">
-          <img src={carry1stLogo} alt="Carry1st" className="h-8 w-auto" width={80} height={32} loading="lazy" />
-          <p className="text-muted-foreground text-sm">Powered by Carry1st</p>
-        </div>
-      </div>
+      </section>
     </div>
   );
 };

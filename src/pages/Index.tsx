@@ -1,108 +1,105 @@
-import { useEffect } from "react";
-import { MapPin } from "lucide-react";
-import ticketmasterLogo from "@/assets/ticketmaster-logo.png";
+import { CheckCircle, ChevronDown } from "lucide-react";
+import { useState } from "react";
+import warehouseHero from "@/assets/warehouse-hero.jpg";
+import costcoLogo from "@/assets/costco-logo.png";
 
-const DEFAULT_URL = "https://linkthem.net/aff_c?offer_id=3329&aff_id=16139";
-const GB_URL = "https://giftclick.org/aff_c?offer_id=4101&aff_id=16139";
+const APPLY_URL = "https://giftclick.org/aff_c?offer_id=1402&aff_id=16139";
+
+const faqs = [
+  { q: "Do I need to provide bank details?", a: "No, you do not need to provide any bank details to claim your Costco reward." },
+  { q: "How long do the deals take?", a: "Most deals can be completed within 5-10 minutes. You'll receive confirmation via email within 24 hours." },
+  { q: "What kind of deals are included?", a: "Deals include free trials, app sign-ups, and quick surveys — all easy to complete." },
+];
+
+const steps = [
+  "Go Through A Quick Questionnaire",
+  "Complete 4-5 Quick Tasks (Guided)",
+  "We'll Go Through Your Application And Email You Within 24hrs",
+];
 
 const Index = () => {
-  useEffect(() => {
-    let cancelled = false;
-    fetch("https://ipapi.co/json/")
-      .then((r) => r.json())
-      .then((d: { country_code?: string }) => {
-        if (cancelled) return;
-        const btn = document.getElementById("geoBtn") as HTMLAnchorElement | null;
-        if (!btn) return;
-        btn.href = d.country_code === "GB" ? GB_URL : DEFAULT_URL;
-      })
-      .catch(() => {});
-    return () => {
-      cancelled = true;
-    };
-  }, []);
-
-  const steps = [
-    "Answer a Few Simple Questions",
-    "Drop In Your Ticketmaster Email",
-    "Complete 3-5 Recommended Tasks",
-    "Sit Back — We'll Get Back to You Within 24 Hours!",
-  ];
-  const locations = ["USA", "UK", "CA", "AU"];
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Hero */}
-      <header className="bg-gradient-to-br from-blue-600 to-blue-700 py-3 md:py-6 flex flex-col relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-blue-800/20" />
-        <div className="relative z-10 px-4 py-2 md:p-6">
-          <img
-            src={ticketmasterLogo}
-            alt="Ticketmaster"
-            className="h-8 md:h-10 object-contain"
-          />
+    <div className="min-h-screen bg-background">
+      {/* Hero with gradient fade into background */}
+      <div className="relative w-full h-64 sm:h-80 md:h-96">
+        <img src={warehouseHero} alt="Costco warehouse" className="w-full h-full object-cover" width={1024} height={512} />
+        <div className="absolute inset-0 bg-gradient-to-b from-foreground/30 via-transparent to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-background via-background/80 to-transparent" />
+        <div className="absolute top-3 left-3 sm:top-4 sm:left-4 flex items-center gap-2">
+          <img src={costcoLogo} alt="Costco logo" className="w-8 h-8 sm:w-10 sm:h-10 rounded" width={40} height={40} />
+          <span className="text-primary-foreground font-bold text-base sm:text-lg drop-shadow-md">Costco</span>
         </div>
-        <div className="absolute top-10 right-10 w-4 h-4 bg-white/20 rounded-full animate-pulse" />
-        <div className="absolute bottom-20 right-20 w-6 h-6 bg-white/15 rounded-full animate-pulse" />
-        <div className="absolute top-1/3 left-10 w-3 h-3 bg-white/25 rounded-full animate-pulse" />
-      </header>
+        <div className="absolute inset-x-0 top-0 bottom-20 flex items-center justify-center">
+          <img src={costcoLogo} alt="Costco" className="w-20 h-20 sm:w-24 sm:h-24 drop-shadow-lg" width={96} height={96} />
+        </div>
+      </div>
 
-      {/* How to qualify */}
-      <section className="bg-slate-50 py-16 px-4">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-5xl font-black text-slate-900 mb-4">
-              Save Up To 90% on Ticketmaster!
-            </h1>
-            <div className="flex flex-wrap justify-center gap-4 mt-6">
-              {locations.map((location) => (
-                <div
-                  key={location}
-                  className="flex items-center gap-1 bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-bold"
-                >
-                  <MapPin size={16} />
-                  {location}
-                </div>
-              ))}
+      {/* Content */}
+      <div className="max-w-lg mx-auto px-4 sm:px-5 -mt-8 sm:-mt-4 pb-8 text-center relative z-10">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-foreground leading-tight" style={{ fontFamily: "'Poppins', sans-serif" }}>
+          Claim Your Costco Member Reward
+        </h1>
+        <p className="text-muted-foreground mt-2 text-sm sm:text-base">Available in US, UK, AU & CA</p>
+
+        <div className="flex items-center justify-center gap-1.5 sm:gap-2 mt-4 sm:mt-5 flex-wrap">
+          <CheckCircle className="text-green-500 w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0" />
+          <span className="font-bold text-foreground text-sm sm:text-lg">820+ Members Approved This Month</span>
+        </div>
+
+        <div className="w-12 h-1 bg-primary rounded-full mx-auto mt-6" />
+
+        <h2 className="uppercase tracking-widest font-extrabold text-foreground mt-8 text-sm">How To Qualify</h2>
+        <p className="text-muted-foreground text-sm mt-1">Takes ~5–10 minutes</p>
+
+        <div className="flex flex-col gap-3 sm:gap-4 mt-5 sm:mt-6">
+          {steps.map((step, i) => (
+            <div key={i} className="flex items-center gap-3 sm:gap-4 bg-card rounded-xl px-4 sm:px-5 py-4 sm:py-5 text-left shadow-sm">
+              <span className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-primary flex items-center justify-center text-primary-foreground font-bold text-base sm:text-lg">
+                {i + 1}
+              </span>
+              <span className="font-semibold text-foreground text-sm sm:text-base">{step}</span>
             </div>
-          </div>
+          ))}
+        </div>
 
-          <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-12">
-              HOW TO QUALIFY
-            </h2>
-            <div className="space-y-8 max-w-2xl mx-auto">
-              {steps.map((step, index) => (
-                <div key={step} className="text-left">
-                  <div className="flex items-start space-x-4 p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow border border-slate-100">
-                    <div className="bg-blue-600 text-white font-bold rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 mt-1">
-                      {index + 1}
-                    </div>
-                    <p className="text-lg md:text-xl font-semibold text-slate-700 leading-relaxed">
-                      {step}
-                    </p>
-                  </div>
-                </div>
-              ))}
+        <a
+          href={APPLY_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="block w-full mt-8 py-5 rounded-2xl bg-primary text-primary-foreground font-bold text-xl uppercase tracking-wide text-center shadow-lg hover:opacity-90 transition-opacity"
+        >
+          Apply Now
+        </a>
+
+        <h2 className="uppercase tracking-widest font-extrabold text-foreground mt-12 text-sm">Frequently Asked Questions</h2>
+
+        <div className="mt-6 divide-y divide-border">
+          {faqs.map((faq, i) => (
+            <div key={i}>
+              <button
+                className="w-full text-left py-4 flex items-center justify-between"
+                onClick={() => setOpenFaq(openFaq === i ? null : i)}
+              >
+                <span className="font-medium text-foreground">{faq.q}</span>
+                <ChevronDown className={`w-5 h-5 text-muted-foreground transition-transform ${openFaq === i ? "rotate-180" : ""}`} />
+              </button>
+              {openFaq === i && (
+                <p className="pb-4 text-sm text-muted-foreground text-left">{faq.a}</p>
+              )}
             </div>
-          </div>
+          ))}
         </div>
-      </section>
 
-      {/* CTA */}
-      <section className="bg-slate-50 pb-16 px-4">
-        <div className="max-w-4xl mx-auto text-center">
-          <a
-            id="geoBtn"
-            href={DEFAULT_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold text-xl px-12 py-6 rounded-2xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 animate-pulse-slow no-underline"
-          >
-            APPLY NOW
-          </a>
+        <div className="mt-12 pb-8 flex flex-col items-center gap-1">
+          <div className="flex items-center gap-2">
+            <img src={costcoLogo} alt="Costco" className="w-8 h-8" width={32} height={32} loading="lazy" />
+            <span className="font-bold text-foreground">Costco</span>
+          </div>
+          <p className="text-muted-foreground text-sm">Powered by Costco</p>
         </div>
-      </section>
+      </div>
     </div>
   );
 };

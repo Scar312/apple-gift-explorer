@@ -1,0 +1,422 @@
+import cashappLogo from "@/assets/cashapp.png";
+import tiktokLogo from "@/assets/tiktok.png";
+import ubereatsLogo from "@/assets/ubereats.png";
+import doordashLogo from "@/assets/doordash.png";
+import ticketmasterLogo from "@/assets/ticketmaster.png";
+import elfLogo from "@/assets/elf.png";
+import no7Logo from "@/assets/no7.png";
+import venmoLogo from "@/assets/venmo.png";
+import sheinLogo from "@/assets/shein.png";
+import walmartLogo from "@/assets/walmart.png";
+import targetLogo from "@/assets/target.webp";
+import nikeLogo from "@/assets/nike.png";
+import appleLogo from "@/assets/apple.png";
+import netflixLogo from "@/assets/netflix.png";
+import starbucksLogo from "@/assets/starbucks.png";
+import boohooLogo from "@/assets/boohoo.png";
+import sephoraLogo from "@/assets/sephora.webp";
+import skimsLogo from "@/assets/skims.png";
+import lorealLogo from "@/assets/loreal.png";
+import prettylittlethingLogo from "@/assets/prettylittlething.png";
+import costcoLogo from "@/assets/costco.webp";
+import asosLogo from "@/assets/asos.jpg";
+import aldiLogo from "@/assets/aldi.png";
+import ultaLogo from "@/assets/ulta.webp";
+import amazonLogo from "@/assets/amazon.png";
+import aerieLogo from "@/assets/aerie.png";
+import abercrrombieLogo from "@/assets/abercrombie.png";
+import sheinTaskIcon from "@/assets/shein-task-icon.webp";
+import playfulRewardsIcon from "@/assets/playful-rewards-icon.webp";
+import amazonIconNew from "@/assets/amazon-icon-new.png";
+
+export interface Offer {
+  id: string;
+  name: string;
+  description: string;
+  discount: string;
+  discountType: "percent" | "text";
+  used: number;
+  remaining: number;
+  logo: string;
+  link: string;
+  category?: string;
+  studentOnly?: boolean;
+  directLink?: boolean;
+  revealLink?: string;
+}
+
+export const offers: Offer[] = [
+  {
+    id: "amazon",
+    name: "Amazon",
+    description: "Mega Deals: Up To 90% Off Everything — Limited Time Only",
+    discount: "82%",
+    discountType: "percent",
+    used: 1247,
+    remaining: 22,
+    logo: amazonLogo,
+    link: "https://glctrk.org/aff_c?offer_id=1153&aff_id=16139",
+    category: "shopping",
+    studentOnly: true,
+  },
+  {
+    id: "apple",
+    name: "Apple",
+    description: "Premium Apple Deals: Score Incredible Discounts On iPhones, MacBooks & Accessories",
+    discount: "83%",
+    discountType: "percent",
+    used: 298,
+    remaining: 26,
+    logo: appleLogo,
+    link: "https://linkthem.net/aff_c?offer_id=1701&aff_id=16139",
+    category: "tech",
+    studentOnly: true,
+    revealLink: "https://linkthem.net/aff_c?offer_id=1701&aff_id=16139",
+  },
+  {
+    id: "shein",
+    name: "SHEIN",
+    description: "Fashion Frenzy: Up To 85% Off Trendy Styles & New Arrivals",
+    discount: "75%",
+    discountType: "percent",
+    used: 892,
+    remaining: 28,
+    logo: sheinLogo,
+    link: "https://glctrk.org/aff_c?offer_id=1304&aff_id=16139",
+    category: "fashion",
+    studentOnly: true,
+  },
+  {
+    id: "tiktok",
+    name: "TikTok Shop",
+    description: "Viral Finds: Exclusive Discounts On Trending Products — Up To 80% Off",
+    discount: "70%",
+    discountType: "percent",
+    used: 756,
+    remaining: 32,
+    logo: tiktokLogo,
+    link: "https://glctrk.org/aff_c?offer_id=1259&aff_id=16139",
+    category: "shopping",
+  },
+  {
+    id: "doordash",
+    name: "DoorDash",
+    description: "Delivery Deals: Massive DoorDash Savings On Every Order",
+    discount: "87%",
+    discountType: "percent",
+    used: 1834,
+    remaining: 18,
+    logo: doordashLogo,
+    link: "https://glctrk.org/aff_c?offer_id=1153&aff_id=16139",
+    category: "food",
+    studentOnly: true,
+  },
+  {
+    id: "ubereats",
+    name: "Uber Eats",
+    description: "Hungry Savings: Up To 90% Off Your Next Meal — Exclusive Student Discount",
+    discount: "90%",
+    discountType: "percent",
+    used: 1456,
+    remaining: 16,
+    logo: ubereatsLogo,
+    link: "https://glctrk.org/aff_c?offer_id=1153&aff_id=16139",
+    category: "food",
+    studentOnly: true,
+  },
+  {
+    id: "cashapp",
+    name: "Cash App",
+    description: "Instant Cash Rewards: Get Exclusive Cash App Bonuses And Discounts",
+    discount: "55%",
+    discountType: "percent",
+    used: 2341,
+    remaining: 48,
+    logo: cashappLogo,
+    link: "https://glctrk.org/aff_c?offer_id=1153&aff_id=16139",
+    category: "finance",
+  },
+  {
+    id: "venmo",
+    name: "Venmo",
+    description: "Money Moves: Exclusive Venmo Bonuses And Cashback Offers",
+    discount: "58%",
+    discountType: "percent",
+    used: 1923,
+    remaining: 46,
+    logo: venmoLogo,
+    link: "https://glctrk.org/aff_c?offer_id=1153&aff_id=16139",
+    category: "finance",
+    studentOnly: true,
+  },
+  {
+    id: "ticketmaster",
+    name: "Ticketmaster",
+    description: "Live Events: Up To 90% Off Concerts, Sports & Theatre Tickets",
+    discount: "90%",
+    discountType: "percent",
+    used: 687,
+    remaining: 19,
+    logo: ticketmasterLogo,
+    link: "https://glctrk.org/aff_c?offer_id=3329&aff_id=16139",
+    category: "entertainment",
+    studentOnly: true,
+  },
+  {
+    id: "elf",
+    name: "e.l.f. Cosmetics",
+    description: "Beauty On A Budget: Up To 50% Off Makeup & Skincare Essentials",
+    discount: "50%",
+    discountType: "percent",
+    used: 543,
+    remaining: 52,
+    logo: elfLogo,
+    link: "https://glctrk.org/aff_c?offer_id=1153&aff_id=16139",
+    category: "beauty",
+  },
+  {
+    id: "no7",
+    name: "No7 Beauty",
+    description: "Skincare Savings: Buy 2 Get 1 Free On All Serums & Creams",
+    discount: "33%",
+    discountType: "percent",
+    used: 321,
+    remaining: 34,
+    logo: no7Logo,
+    link: "https://glctrk.org/aff_c?offer_id=1153&aff_id=16139",
+    category: "beauty",
+    studentOnly: true,
+  },
+  {
+    id: "walmart",
+    name: "Walmart",
+    description: "Everyday Low Prices: Save On Groceries, Electronics & Home Essentials",
+    discount: "68%",
+    discountType: "percent",
+    used: 543,
+    remaining: 34,
+    logo: walmartLogo,
+    link: "https://glctrk.org/aff_c?offer_id=1153&aff_id=16139",
+    category: "shopping",
+  },
+  {
+    id: "target",
+    name: "Target",
+    description: "Target Everyday Essentials: Save Big On Home, Fashion & Groceries",
+    discount: "80%",
+    discountType: "percent",
+    used: 412,
+    remaining: 24,
+    logo: targetLogo,
+    link: "https://glctrk.org/aff_c?offer_id=1153&aff_id=16139",
+    category: "shopping",
+    studentOnly: true,
+  },
+  {
+    id: "nike",
+    name: "Nike",
+    description: "Just Do It For Less: Premium Athletic Wear & Sneakers At Massive Discounts",
+    discount: "72%",
+    discountType: "percent",
+    used: 387,
+    remaining: 30,
+    logo: nikeLogo,
+    link: "https://glctrk.org/aff_c?offer_id=1153&aff_id=16139",
+    category: "fashion",
+  },
+  {
+    id: "netflix",
+    name: "Netflix",
+    description: "Unlimited Entertainment: Binge-Watch Your Favorite Shows With Discounted Premium",
+    discount: "65%",
+    discountType: "percent",
+    used: 276,
+    remaining: 36,
+    logo: netflixLogo,
+    link: "https://glctrk.org/aff_c?offer_id=1153&aff_id=16139",
+    category: "entertainment",
+    revealLink: "https://giftclick.org/aff_c?offer_id=2216&aff_id=16139",
+  },
+  {
+    id: "starbucks",
+    name: "Starbucks",
+    description: "Coffee & Treats For Less: Enjoy Your Favorite Drinks With Incredible Savings",
+    discount: "88%",
+    discountType: "percent",
+    used: 521,
+    remaining: 17,
+    logo: starbucksLogo,
+    link: "https://glctrk.org/aff_c?offer_id=1153&aff_id=16139",
+    category: "food",
+    studentOnly: true,
+  },
+  {
+    id: "boohoo",
+    name: "Boohoo",
+    description: "Bold Fashion Finds: Stay On Trend With The Latest Styles",
+    discount: "58%",
+    discountType: "percent",
+    used: 234,
+    remaining: 56,
+    logo: boohooLogo,
+    link: "https://glctrk.org/aff_c?offer_id=1153&aff_id=16139",
+    category: "fashion",
+  },
+  {
+    id: "sephora",
+    name: "Sephora",
+    description: "Sephora Beauty Insider: Access Exclusive Deals On Premium Makeup & Skincare",
+    discount: "60%",
+    discountType: "percent",
+    used: 445,
+    remaining: 40,
+    logo: sephoraLogo,
+    link: "https://glctrk.org/aff_c?offer_id=1153&aff_id=16139",
+    category: "beauty",
+  },
+  {
+    id: "skims",
+    name: "SKIMS",
+    description: "Luxury Shapewear & Essentials: Experience Comfort & Style At Exclusive Savings",
+    discount: "52%",
+    discountType: "percent",
+    used: 189,
+    remaining: 58,
+    logo: skimsLogo,
+    link: "https://glctrk.org/aff_c?offer_id=1153&aff_id=16139",
+    category: "fashion",
+  },
+  {
+    id: "loreal",
+    name: "L'Oréal",
+    description: "Premium Beauty Savings: Indulge In Luxury Skincare And Makeup",
+    discount: "55%",
+    discountType: "percent",
+    used: 312,
+    remaining: 54,
+    logo: lorealLogo,
+    link: "https://glctrk.org/aff_c?offer_id=1153&aff_id=16139",
+    category: "beauty",
+  },
+  {
+    id: "prettylittlething",
+    name: "PrettyLittleThing",
+    description: "Slay For Less: Get The Latest PLT Styles At Incredible Discounts",
+    discount: "62%",
+    discountType: "percent",
+    used: 267,
+    remaining: 42,
+    logo: prettylittlethingLogo,
+    link: "https://glctrk.org/aff_c?offer_id=1153&aff_id=16139",
+    category: "fashion",
+  },
+  {
+    id: "costco",
+    name: "Costco",
+    description: "Wholesale Savings Galore: Bulk Buy Essentials With Exclusive Member Discounts",
+    discount: "86%",
+    discountType: "percent",
+    used: 398,
+    remaining: 20,
+    logo: costcoLogo,
+    link: "https://glctrk.org/aff_c?offer_id=1153&aff_id=16139",
+    category: "shopping",
+    studentOnly: true,
+  },
+  {
+    id: "asos",
+    name: "ASOS",
+    description: "Fashion Forward Finds: Discover Trending Styles From ASOS",
+    discount: "60%",
+    discountType: "percent",
+    used: 223,
+    remaining: 44,
+    logo: asosLogo,
+    link: "https://glctrk.org/aff_c?offer_id=1153&aff_id=16139",
+    category: "fashion",
+  },
+  {
+    id: "aldi",
+    name: "ALDI",
+    description: "Quality Groceries For Less: Shop Smart With Exclusive Savings",
+    discount: "52%",
+    discountType: "percent",
+    used: 178,
+    remaining: 50,
+    logo: aldiLogo,
+    link: "https://glctrk.org/aff_c?offer_id=1153&aff_id=16139",
+    category: "shopping",
+  },
+  {
+    id: "ulta",
+    name: "Ulta",
+    description: "Ulta Beauty Rewards: Shop The Best Beauty Brands With Exclusive Discounts",
+    discount: "63%",
+    discountType: "percent",
+    used: 356,
+    remaining: 38,
+    logo: ultaLogo,
+    link: "https://glctrk.org/aff_c?offer_id=1153&aff_id=16139",
+    category: "beauty",
+  },
+  {
+    id: "aerie",
+    name: "Aerie",
+    description: "Feel-Good Fashion: Cozy Styles & Loungewear At Unbeatable Discounts",
+    discount: "55%",
+    discountType: "percent",
+    used: 198,
+    remaining: 44,
+    logo: aerieLogo,
+    link: "https://glctrk.org/aff_c?offer_id=1153&aff_id=16139",
+    category: "fashion",
+  },
+  {
+    id: "abercrombie",
+    name: "Abercrombie & Fitch",
+    description: "Classic American Style: Premium Fashion Essentials At Massive Savings",
+    discount: "60%",
+    discountType: "percent",
+    used: 167,
+    remaining: 48,
+    logo: abercrrombieLogo,
+    link: "https://glctrk.org/aff_c?offer_id=1153&aff_id=16139",
+    category: "fashion",
+    studentOnly: true,
+  },
+];
+
+export const tasks = [
+  {
+    id: "shein",
+    name: "Shein",
+    description: "Complete a short survey to qualify for free Shein PR packages & Gift Cards.",
+    logo: sheinTaskIcon,
+    link: "https://gloffers.org/aff_c?offer_id=1224&aff_id=16139",
+    stars: 4,
+  },
+  {
+    id: "playful-rewards",
+    name: "Playful Rewards",
+    description: "Complete tasks, collect gems, earn discounts. Run app for 30 seconds to unlock this content.",
+    logo: playfulRewardsIcon,
+    link: "https://glctrk.org/aff_c?offer_id=2691&aff_id=16139",
+    stars: 4,
+  },
+  {
+    id: "amazon-task",
+    name: "Amazon",
+    description: "Turn your resistance into free gift cards. Run app for 30 seconds to unlock this content.",
+    logo: amazonIconNew,
+    link: "https://trkio.org/aff_c?offer_id=1153&aff_id=16139",
+    stars: 4,
+  },
+  {
+    id: "netflix-task",
+    name: "Netflix",
+    description: "Complete a short survey to qualify for free Netflix Premium & Gift Card",
+    logo: netflixLogo,
+    link: "https://glctrk.org/aff_c?offer_id=2216&aff_id=16139",
+    stars: 4,
+  },
+];

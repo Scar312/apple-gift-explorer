@@ -21,9 +21,9 @@ const faqs = [
 ];
 
 const steps = [
-  "Go Through A Quick Questionnaire",
-  "Complete 4-5 Quick Tasks (Guided)",
-  "We'll Go Through Your Application And Email You Within 24hrs",
+  "Complete a Quick Sign-Up",
+  "Complete 4-5 Quick Deals (Guided)",
+  "We'll Review Your Submission And Email You Within 24hrs",
 ];
 
 const Index = () => {
@@ -114,7 +114,7 @@ const Index = () => {
           rel="noopener noreferrer"
           className="block w-full mt-8 py-5 rounded-2xl bg-primary text-primary-foreground font-bold text-xl uppercase tracking-wide text-center shadow-lg hover:opacity-90 transition-opacity"
         >
-          Apply Now
+          Get Coupon
         </a>
 
         <h2 className="uppercase tracking-widest font-extrabold text-foreground mt-12 text-sm">

@@ -21,9 +21,9 @@ const faqs = [
 ];
 
 const steps = [
-  "Go Through A Quick Questionnaire",
-  "Complete 4-5 Quick Tasks (Guided)",
-  "We'll Go Through Your Application And Email You Within 24hrs",
+  "Complete a Quick Sign-Up",
+  "Complete 4-5 Quick Deals (Guided)",
+  "We'll Review Your Submission And Email You Within 24hrs",
 ];
 
 const Index = () => {
